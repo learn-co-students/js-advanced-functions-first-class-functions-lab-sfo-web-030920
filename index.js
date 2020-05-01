@@ -8,9 +8,9 @@ const returnLastTwoDrivers = (drivers) => drivers.slice(-2);
 
 const selectingDrivers = [returnFirstTwoDrivers, returnLastTwoDrivers];
 
-function createFareMultiplier(integer) {
+function createFareMultiplier(multiplyInteger) {
   return function (fare) {
-    return fare * integer;
+    return fare * multiplyInteger;
   };
 }
 
@@ -18,10 +18,6 @@ const fareDoubler = createFareMultiplier(2);
 
 const fareTripler = createFareMultiplier(3);
 
-function selectDifferentDrivers(drivers, fcn) {
-  if (fcn === returnFirstTwoDrivers) {
-    return returnFirstTwoDrivers(drivers);
-  } else if (fcn === returnLastTwoDrivers) {
-    return returnLastTwoDrivers(drivers);
-  }
+function selectDifferentDrivers(drivers, selectDriverFcn) {
+  return selectDriverFcn(drivers);
 }
